@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* .swiper-button-prev:after {
+  content: url("./assets/icons/prev_icon") !important;
+}
+.swiper-button-next:after {
+  content: url("./assets/icons/next_arrow") !important;
+} */
+
+.swiper-pagination-button{
+  display: none;
+}
