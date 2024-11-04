@@ -25,7 +25,8 @@ import notification from "../../assets/icons/notification_icon.svg";
 import profil from "../../assets/icons/header_profile.svg";
 import { FC, useState } from "react";
 import { Button, Drawer, Space, DrawerProps } from 'antd';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import ChannelPage from "../../channelPage/channel";
 const Header: FC = () => {
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState<typeDrawerProps['placement']>('left');
@@ -59,9 +60,11 @@ const Header: FC = () => {
               <img src={headerNvbar} alt="" />
 
             </a>
-            <img src={headericon} alt="" />
+            <Link to="/">
+            <img src={headericon} alt="icon" />
+            </Link>
           </div>    <div className="flex items-center relative max-w-full">
-          <input
+        <input
   className="py-2 bg-[#ebebeb] pl-10 pr-4 w-[300px] sm:w-[500px] hidden sm:block rounded-xl max-w-full"
   type="text"
   placeholder="Search"
@@ -137,7 +140,8 @@ const Header: FC = () => {
           </ul>
           <ul className="flex flex-col gap-[26px] pt-[58px] pb-[104px]">
             <h1 className="font-bold text-lg mb-1">Subscriptions</h1>
-            <li className="flex items-center gap-2 text-[16px] text-primary hover:text-[red] "><img src={ProfileIcon1} alt="icons" />Gussie Singleton</li>
+          <Link to="channel">
+          <li className="flex items-center gap-2 text-[16px] text-primary hover:text-[red] "><img src={ProfileIcon1} alt="icons" />Gussie Singleton</li></Link>
             <li className="flex items-center gap-2 text-[16px] text-primary hover:text-[red] "><img src={ProfileIcon2} alt="icons" />Nora Francis</li>
             <li className="flex items-center gap-2 text-[16px] text-primary hover:text-[red] "><img src={ProfileIcon3} alt="icons" />Belle Briggs</li>
             <li className="flex items-center gap-2 text-[16px] text-primary hover:text-[red] "><img src={ProfileIcon4} alt="icons" />Eunice Cortez</li>

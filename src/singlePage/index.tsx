@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { ApiService } from '../services/api';
 
-// Define interfaces for video data
 interface Snippet {
   title: string;
   description: string;
@@ -38,7 +37,11 @@ function SinglePage() {
     const getData = async () => {
       try {
         const data = await ApiService.fetching(`videos?part=snippet,statistics,contentDetails&id=${id}`);
-        setVideo(data.items[0]);
+        if (data.items.length > 0) {
+          setVideo(data.items[0]);
+        } else {
+          console.error("No video found");
+        }
       } catch (error) {
         console.log(error);
       }
@@ -99,10 +102,9 @@ function SinglePage() {
           </div>
         </div>
 
-
         <div className="flex-1 lg:max-w-[500px] bg-gray-800 p-4 rounded-lg">
           <h2 className="text-xl font-semibold mb-2">Description</h2>
-          <p className="text-gray-300">{description.slice(0, 100)}</p>
+          <p className="text-gray-300">{description.slice(0,200)}</p>
         </div>
       </div>
     </div>
